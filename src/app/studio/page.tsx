@@ -124,7 +124,6 @@ export default function StudioPage() {
   const visibleVoices = isUrdu ? voices.urdu : voices.english;
   const currentVoice = visibleVoices.find((v) => v.name === selectedVoice);
   const voiceSupportsPitch = currentVoice?.supportsPitch ?? !selectedVoice.toLowerCase().includes("chirp");
-  const isChirpVoice = !voiceSupportsPitch;
 
   // Unique model types present in current language
   const availableModels = [
