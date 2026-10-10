@@ -67,17 +67,17 @@ create policy "Users can CRUD own projects" on public.projects for all using (au
 -- STORAGE BUCKET
 -- ─────────────────────────────────────────
 insert into storage.buckets (id, name, public)
-values ('audio', 'audio', true)
-on conflict (id) do nothing;
+values ('voiceovers', 'voiceovers', true)
+on conflict (id) do update set public = true;
 
 create policy "Users can upload own audio"
   on storage.objects for insert
-  with check (bucket_id = 'audio' and auth.uid()::text = (storage.foldername(name))[1]);
+  with check (bucket_id = 'voiceovers' and auth.uid()::text = (storage.foldername(name))[1]);
 
 create policy "Anyone can read audio"
   on storage.objects for select
-  using (bucket_id = 'audio');
+  using (bucket_id = 'voiceovers');
 
 create policy "Users can delete own audio"
   on storage.objects for delete
-  using (bucket_id = 'audio' and auth.uid()::text = (storage.foldername(name))[1]);
+  using (bucket_id = 'voiceovers' and auth.uid()::text = (storage.foldername(name))[1]);

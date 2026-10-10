@@ -1,27 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─── Base reset ─── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: "Inter", system-ui, sans-serif;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-surface text-ink;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    @apply bg-brand-600 text-white;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-surface-2; }
+  ::-webkit-scrollbar-thumb { @apply bg-surface-4 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-ink-subtle; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─── Components ─── */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl
+           bg-brand-600 text-white text-sm font-semibold
+           hover:bg-brand-500 active:bg-brand-700
+           transition-all duration-200 shadow-lg shadow-brand-900/30
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl
+           bg-surface-3 text-ink text-sm font-semibold border border-surface-4
+           hover:bg-surface-4 active:bg-surface-3
+           transition-all duration-200
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg
+           text-ink-muted text-sm font-medium
+           hover:bg-surface-2 hover:text-ink
+           transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-surface-1 border border-surface-3 rounded-2xl;
+  }
+
+  .card-hover {
+    @apply card hover:border-brand-600/50 hover:bg-surface-2 transition-all duration-200 cursor-pointer;
+  }
+
+  .input {
+    @apply w-full bg-surface-2 border border-surface-4 rounded-xl px-4 py-2.5
+           text-ink text-sm placeholder:text-ink-subtle
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent
+           transition-all duration-200;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+
+  .badge-free    { @apply badge bg-surface-3 text-ink-muted; }
+  .badge-starter { @apply badge bg-brand-900/60 text-brand-300 border border-brand-700/40; }
+  .badge-pro     { @apply badge bg-amber-900/60 text-amber-300 border border-amber-700/40; }
+
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-widest text-ink-subtle;
+  }
+
+  .page-title {
+    @apply text-3xl font-bold text-ink;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
+/* ─── Utilities ─── */
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-400 to-purple-400 bg-clip-text text-transparent;
   }
+
+  .glass {
+    background: rgba(30, 30, 38, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .ring-brand {
+    @apply ring-2 ring-brand-500 ring-offset-2 ring-offset-surface;
+  }
+
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+
+  /* RTL Urdu textarea */
+  .urdu-textarea {
+    @apply input font-sans;
+    direction: auto;
+    text-align: right;
+    line-height: 1.9;
+    font-size: 1.0625rem;
+    resize: vertical;
+    min-height: 220px;
+  }
+}
+
+/* ─── Audio player overrides ─── */
+audio {
+  width: 100%;
+  height: 40px;
+  filter: invert(1) hue-rotate(180deg) brightness(0.9);
+  border-radius: 8px;
 }
