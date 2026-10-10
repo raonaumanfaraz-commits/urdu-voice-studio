@@ -131,15 +131,15 @@ export default function LandingPage() {
     <div className="min-h-screen bg-surface text-ink">
       {/* ── Navigation ── */}
       <header className="sticky top-0 z-50 glass border-b border-surface-3">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 py-1">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[76px] sm:min-h-[84px] py-2 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2 group">
             <Image
               src="/uvs-glossy-logo.png"
               alt="Urdu Voice Studio"
-              width={240}
-              height={80}
+              width={300}
+              height={100}
               priority
-              className="h-9 w-auto max-w-[200px] object-contain rounded"
+              className="h-14 sm:h-[68px] w-auto object-contain rounded transition-opacity group-hover:opacity-90"
             />
           </Link>
           <nav className="hidden sm:flex items-center gap-6 text-sm text-ink-muted">

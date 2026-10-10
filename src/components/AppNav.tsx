@@ -29,16 +29,16 @@ export default function AppNav() {
   return (
     <nav className="sticky top-0 z-50 glass border-b border-surface-3">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14">
+        <div className="flex items-center justify-between min-h-[76px] sm:min-h-[84px] py-2">
           {/* Logo */}
-          <Link href="/studio" className="flex items-center gap-2 group py-1">
+          <Link href="/studio" className="flex items-center gap-2 group">
             <Image
               src="/uvs-glossy-logo.png"
               alt="Urdu Voice Studio"
-              width={240}
-              height={80}
+              width={300}
+              height={100}
               priority
-              className="h-9 w-auto max-w-[200px] object-contain rounded transition-opacity group-hover:opacity-90"
+              className="h-14 sm:h-[68px] w-auto object-contain rounded transition-opacity group-hover:opacity-90"
             />
           </Link>
 

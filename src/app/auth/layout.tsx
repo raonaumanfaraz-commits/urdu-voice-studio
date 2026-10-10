@@ -13,10 +13,10 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         <Image
           src="/uvs-glossy-logo.png"
           alt="Urdu Voice Studio"
-          width={280}
-          height={93}
+          width={360}
+          height={120}
           priority
-          className="h-12 w-auto max-w-[280px] object-contain rounded-lg group-hover:opacity-90 transition-opacity"
+          className="h-16 sm:h-20 w-auto object-contain rounded-lg group-hover:opacity-90 transition-opacity"
         />
       </Link>
       {children}
