@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   description:
     "Type your script, get a natural-sounding Urdu voice-over in seconds. Powered by Google Cloud TTS Chirp3-HD voices.",
   keywords: ["Urdu TTS", "Urdu text to speech", "Urdu voice over", "ur-IN"],
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
   openGraph: {
     title: "Urdu Voice Studio",
     description: "Natural-sounding Urdu voice-overs in seconds.",

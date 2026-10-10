@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mic2, Zap, Globe, Shield, ChevronRight, Check } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -131,12 +132,16 @@ export default function LandingPage() {
       {/* ── Navigation ── */}
       <header className="sticky top-0 z-50 glass border-b border-surface-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center">
-              <Mic2 className="w-4 h-4 text-white" />
-            </div>
-            <span className="font-bold text-ink text-sm">Urdu Voice Studio</span>
-          </div>
+          <Link href="/" className="flex items-center gap-2 py-1">
+            <Image
+              src="/uvs-glossy-logo.png"
+              alt="Urdu Voice Studio"
+              width={240}
+              height={80}
+              priority
+              className="h-9 w-auto max-w-[200px] object-contain rounded"
+            />
+          </Link>
           <nav className="hidden sm:flex items-center gap-6 text-sm text-ink-muted">
             <a href="#features" className="hover:text-ink transition-colors">Features</a>
             <a href="#pricing" className="hover:text-ink transition-colors">Pricing</a>

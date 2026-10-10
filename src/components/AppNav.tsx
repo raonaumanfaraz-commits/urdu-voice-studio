@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Mic2, FolderOpen, User, LogOut, Menu, X } from "lucide-react";
 import { createSupabaseBrowserClient } from "@/lib/supabase-browser";
@@ -30,11 +31,15 @@ export default function AppNav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <Link href="/studio" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center group-hover:bg-brand-500 transition-colors">
-              <Mic2 className="w-4 h-4 text-white" />
-            </div>
-            <span className="font-bold text-ink text-sm">Urdu Voice Studio</span>
+          <Link href="/studio" className="flex items-center gap-2 group py-1">
+            <Image
+              src="/uvs-glossy-logo.png"
+              alt="Urdu Voice Studio"
+              width={240}
+              height={80}
+              priority
+              className="h-9 w-auto max-w-[200px] object-contain rounded transition-opacity group-hover:opacity-90"
+            />
           </Link>
 
           {/* Desktop nav */}
